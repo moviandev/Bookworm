@@ -11,8 +11,11 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: []) var students: FetchedResults<Student>
 
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            List(students) { student in
+                Text(student.name ?? "Unknown")
+            }
+        }
     }
 }
 
