@@ -35,8 +35,7 @@ struct AddBookView: View {
                 }
                 
                 Section {
-                    TextEditor(text: $review)
-                    
+                    TextEditor(text: $review)                    
                     RatingView(rating: $rating)
                 } header: {
                     Text("Write a review")
