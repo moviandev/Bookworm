@@ -9,11 +9,23 @@ import SwiftUI
 
 struct DetailView: View {
     let book: Book
+    
+    var genre: String {
+        if book.genre == nil {
+            return "Fantasy"
+        }
+        
+        if book.genre!.isEmpty {
+            return "Fantasy"
+        }
+        
+        return book.genre!
+    }
 
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
-                Image(book.genre ?? "Fantasy")
+                Image(genre)
                     .resizable()
                     .scaledToFit()
                 
