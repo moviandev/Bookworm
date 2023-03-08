@@ -14,7 +14,7 @@ struct AddBookView: View {
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = ""
+    @State private var genre = "Fantasy"
     @State private var review = ""
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
@@ -31,7 +31,6 @@ struct AddBookView: View {
                             Text($0)
                         }
                     }
-                    .pickerStyle(.menu)
                 }
                 
                 Section {
