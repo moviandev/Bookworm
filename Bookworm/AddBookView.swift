@@ -54,10 +54,19 @@ struct AddBookView: View {
                         
                         dismiss()
                     }
+                    .disabled(validateForm() == false)
                 }
             }
             .navigationTitle("Add Book")
         }
+    }
+    
+    func validateForm() -> Bool {
+        if title.trimmingCharacters(in: .whitespaces).isEmpty || author.trimmingCharacters(in: .whitespaces).isEmpty || genre.trimmingCharacters(in: .whitespaces).isEmpty || review.trimmingCharacters(in: .whitespaces).isEmpty || rating < 0 {
+            return false
+        }
+        
+        return true
     }
 }
 
