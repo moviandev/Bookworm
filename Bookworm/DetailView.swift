@@ -28,19 +28,30 @@ struct DetailView: View {
 
     var body: some View {
         ScrollView {
-            ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .bottom) {
                 Image(genre)
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.white)
-                    .background(.black.opacity(0.74))
-                    .clipShape(Capsule())
-                    .offset(x: -5, y:-5)
+                HStack(spacing: 50) {
+                    Text("\(book.createdIn?.formatted(date: .abbreviated, time: .omitted) ?? Date.now.formatted(date: .abbreviated, time: .omitted))")
+                        .font(.caption)
+                        .fontWeight(.black)
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.74))
+                        .clipShape(Capsule())
+                        .offset(x: -5, y: -5)
+                    
+                    Text(book.genre?.uppercased() ?? "FANTASY")
+                        .font(.caption)
+                        .fontWeight(.black)
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.74))
+                        .clipShape(Capsule())
+                        .offset(x: -5, y:-5)
+                }
             }
             
             Text(book.author ?? "Unknowon Author")
